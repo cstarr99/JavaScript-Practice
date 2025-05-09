@@ -35,17 +35,3 @@ function hello(name) {
 }
 
 console.log(hello("Chase"));
-
-//callback function.
-
-//function that takes in variable and prints that variable.
-function printVariable(Variable) {
-  console.log(Variable);
-}
-
-//function that takes in function as x. the function then uses "hello world" as argument in print variable function.
-function func(x) {
-  x("hello world");
-}
-
-func(printVariable);
