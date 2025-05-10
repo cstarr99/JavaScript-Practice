@@ -30,16 +30,7 @@ function addHello(name, callback) {
 
 addHello("Chase", printVariable);
 
-/*
-
-
-*/
-
 //you can simplify it by making the function inside the parameters.
-function addHello(name, callback) {
-  callback("Hello " + name);
-}
-
 //instead of making printVariable function you can just make it when calling addHello function.
 addHello("Chasey", function (variable) {
   console.log(variable);
