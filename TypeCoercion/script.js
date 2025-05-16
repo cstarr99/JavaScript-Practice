@@ -10,3 +10,9 @@ console.log(typeof parseFloat(b));
 //Converting type number to string.
 let c = 3;
 console.log(typeof c.toString());
+
+//To check if something is not a number you can only use the function below.
+let z = "sdsDs";
+
+console.log(isNaN(z));
+console.log(isNaN(c));
