@@ -36,6 +36,7 @@ button.removeEventListener("click", clicked());
 const link = document.querySelector(".text");
 
 link.addEventListener("click", (e) => {
+  //prevent default just prevents the default action. in this case its to follow the link to its site.
   e.preventDefault();
   console.log("clicked link");
 });
