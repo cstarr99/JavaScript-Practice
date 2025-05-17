@@ -24,3 +24,5 @@ console.log(triple != double);
 
 console.log(triple === double);
 console.log(triple !== double);
+
+//ALWAYS use === unless checking for undefined.
