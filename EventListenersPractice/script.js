@@ -32,7 +32,7 @@ button.removeEventListener("click", clicked());
  *
  */
 
-//when link is clicked, prevent default and log something to console.
+//when link is clicked, prevents the default and log something to console.
 const link = document.querySelector(".text");
 
 link.addEventListener("click", (e) => {
