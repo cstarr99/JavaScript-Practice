@@ -6,8 +6,12 @@
     * BONUS: The alert (has the id `alert`)
 */
 
+const form = document.querySelector("#quiz-form");
+const answers = Array.from(document.querySelectorAll(".answer"));
+const alert = document.querySelector("#alert");
+const questions = Array.from(document.querySelectorAll(".question-item"));
 // TODO: 3. Create a submit event listener for the form that does the following.
-//    1. Prevent the default behaviour
+//    1. Prevent the default behavior
 //    2. Get all selected answers (use the `checked` property on the input to determine if it is selected or not)
 //    3. Loop through the selected answer to see if they are correct or not (Check the value of the answer to see if it is the string "true")
 //    4. For each correct answer add the class `correct` to the parent with the class `question-item` and remove the class `incorrect`.
@@ -15,24 +19,18 @@
 //    6. BONUS: Make sure unanswered questions show up as incorrect. The easiest way to do this is to add the incorrect class and removing the correct class from all question items before checking the correct answers
 //    7. BONUS: If all answers are correct show the element with the id `alert` and hide it after one second (look into setTimeout) (use the class active to show the alert and remove the class to hide it)
 
-const button = document.querySelector("#button");
-const form = document.querySelector("#quiz-form");
-const alert = document.querySelector("#alert");
-const answer = Array.from(document.querySelectorAll(".answer"));
-
-console.log(answer);
-
-form.addEventListener("click", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  for (i = 0; i < 5; i++) {
-    if (selectedAnswers == true) {
-      selectedAnswers.closest(".question-item").classList.add("correct");
-      selectedAnswers.closest(".question-item").classList.remove("incorrect");
+  selectedAnswers = answers.filter((answers) => answers.checked);
+  selectedAnswers.forEach((answer) => {
+    const isTrue = answer.value === "true";
+    const questionItem = answer.closest(".question-item");
+    if (isTrue) {
+      questionItem.classList.add("correct");
+      questionItem.classList.remove("incorrect");
     } else {
-      selectedAnswers.closest(".question-item").classList.add("incorrect");
-      selectedAnswers.closest(".question-item").classList.remove("correct");
+      questionItem.classList.remove("correct");
+      questionItem.classList.add("incorrect");
     }
-  }
-  //alert.classList.add("active");
+  });
 });
