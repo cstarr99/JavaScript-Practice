@@ -3,7 +3,7 @@ const grandparent = document.querySelector("#grandparent");
 
 const parentOne = childOne.parentElement;
 
-const parentTwo = childOne.nextElementSibling;
+const parentTwo = parentOne.nextElementSibling;
 
 const childOne = childTwo.previousElementSibling;
 

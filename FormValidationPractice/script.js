@@ -1,27 +1,61 @@
-// TODO: Select all elements needed
-//    Use the HTML to figure out what classes/ids will work best for selecting each element
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const terms = document.getElementById("terms");
+const passwordConfirmation = document.getElementById("password-confirmation");
+const form = document.getElementById("form");
+const errorsList = document.querySelector(".errors-list");
+const errors = document.querySelector(".errors");
 
-// TODO: Create an event listener for when the form is submitted and do the following inside of it.
-//    TODO: Create an array to store all error messages and clear any old error messages
-//    TODO: Define the following validation checks with appropriate error messages
-//      1. Ensure the username is at least 6 characters long
-//      2. Ensure the password is at least 10 characters long
-//      3. Ensure the password and confirmation password match
-//      4. Ensure the terms checkbox is checked
-//    TODO: If there are any errors then prevent the form from submitting and show the error messages
+//An event listener for when the form is submitted and does all of the following inside it.
+form.addEventListener("submit", (e) => {
+  //make an empty array
+  const errorMessages = [];
+  //executes clear errors function
+  clearErrors();
+  //if the usernames length is less than six, add the message to the errorMessages array.
+  if (username.value.length < 6) {
+    errorMessages.push("Ensure the username is at least 6 characters long");
+  }
+  //if the passwords length is less than 10, add the message to the errorMessages array.
+  if (password.value.length < 10) {
+    errorMessages.push("Ensure the password is at least 10 characters long");
+  }
+  //if the password doesn't match the password confirmation, add the message to the errorMessages array.
+  if (password.value !== passwordConfirmation.value) {
+    errorMessages.push("Ensure the password and confirmation password match");
+  }
+  //if the terms are not checked, add the message to the errorMessages array.
+  if (terms.checked === false) {
+    errorMessages.push("Ensure the terms checkbox is checked");
+  }
+  //if there is even 1 error message then don't submit the form and execute show errors function.
+  if (errorMessages.length > 0) {
+    e.preventDefault();
+    showErrors(errorMessages);
+  }
+});
 
-// TODO: Define this function
 function clearErrors() {
-  // Loop through all the children of the error-list element and remove them
-  // IMPORTANT: This cannot be done with a forEach loop or a normal for loop since as you remove children it will modify the list you are looping over which will not work
-  // I recommend using a while loop to accomplish this task
-  // This is the trickiest part of this exercise so if you get stuck and are unable to progress you can also set the innerHTML property of the error-list to an empty string and that will also clear the children. I recommend trying to accomplish this with a while loop, though, for practice.
-  // Also, make sure you remove the show class to the errors container
+  //while the first li in the errors list is not undefined or null continue the while loop.
+  while (errorsList.children[0] != undefined || null) {
+    //remove the current error list child at index 0.
+    errorsList.removeChild(errorsList.children[0]);
+    //after it is removed the current child[1] will become child[0] because the while loop has not stopped.
+  }
+  //remove the show class from errors to make it disappear.
+  errors.classList.remove("show");
 }
 
-// TODO: Define this function
 function showErrors(errorMessages) {
-  // Add each error to the error-list element
-  // Make sure to use an li as the element for each error
-  // Also, make sure you add the show class to the errors container
+  //for each error message in the array...
+  errorMessages.forEach((errorMessage) => {
+    //create a "li" element in the errors list
+    const li = document.createElement("li");
+    //add the current error message to that element.
+    li.innerText = errorMessage;
+    //add the li to the error list.
+    errorsList.appendChild(li);
+  });
+  //add the show class to errors to make it appear
+  errors.classList.add("show");
 }
