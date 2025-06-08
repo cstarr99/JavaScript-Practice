@@ -71,3 +71,18 @@ function callbackFunction(callback, variable) {
 }
 
 callbackFunction(multiply, 4);
+
+/*
+ *
+ *
+ *
+ */
+
+//callbacks in asynchronous code are functions that run at a late time after all the normal code based on a specific condition.
+//Ex: timeout function
+setTimeout(() => {
+  console.log("inside"), 1000;
+});
+
+//outside runs first
+console.log("outside");
