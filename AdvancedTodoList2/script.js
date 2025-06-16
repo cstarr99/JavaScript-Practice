@@ -4,7 +4,7 @@ const list = document.querySelector("#list");
 const template = document.querySelector("#list-item-template");
 const LOCAL_STORAGE_PREFIX = "[ADVANCED_TODO:]";
 const TODOS_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX}todos`;
-const todos = loadTodo();
+let todos = loadTodo();
 todos.forEach((todo) => {
   printTodo(todo);
 });
@@ -12,12 +12,20 @@ todos.forEach((todo) => {
 list.addEventListener("change", (e) => {
   if (!e.target.matches("[data-list-item-checkbox]")) return;
   const parent = e.target.closest(".list-item");
-  const listItemId = parent.dataset.todoID;
-  const realTodo = todos.find((todo) => {
-    listItemId === todo.id;
+  const listItemId = parent.dataset.todoId;
+  const realTodo = todos.find((t) => {
+    return t.id === listItemId;
   });
   realTodo.complete = e.target.checked;
+  saveTodo();
+});
 
+list.addEventListener("click", (e) => {
+  if (!e.target.matches("[data-button-delete]")) return;
+  const parent = e.target.closest(".list-item");
+  const listItemId = parent.dataset.todoId;
+  parent.remove();
+  todos = todos.filter((t) => t.id !== listItemId);
   saveTodo();
 });
 
@@ -40,7 +48,9 @@ function printTodo(todoItem) {
   const templateClone = template.content.cloneNode(true);
   const textElement = templateClone.querySelector("[data-list-item-text]");
   const listItem = templateClone.querySelector(".list-item");
-  listItem.dataset.todoID = todoItem.id;
+  listItem.dataset.todoId = todoItem.id;
+  const checkbox = templateClone.querySelector("[data-list-item-checkbox]");
+  checkbox.checked = todoItem.complete;
   textElement.innerText = todoItem.name;
   list.appendChild(templateClone);
 }
@@ -53,6 +63,3 @@ function loadTodo() {
 function saveTodo() {
   localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos));
 }
-
-//complete item
-//delete item
