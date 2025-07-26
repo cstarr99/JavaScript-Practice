@@ -1,0 +1,20 @@
+{
+  "name": "coding-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cstarr99/ssod.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cstarr99/ssod/issues"
+  },
+  "homepage": "https://github.com/cstarr99/ssod#readme",
+  "description": ""
+}
