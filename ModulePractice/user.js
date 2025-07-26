@@ -19,3 +19,12 @@ function printUser(name) {
 
 //for variables, only export default can go on separate line. The rest have to be like sally.
 export default me;
+
+//NODE MODULES
+//same thing as above but with node modules.
+// module.exports = {
+//   me: me,
+//   sally: sally,
+//   sam: sam,
+//   printUser: printUser,
+// };
