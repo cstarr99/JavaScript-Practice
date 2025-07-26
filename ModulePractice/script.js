@@ -6,6 +6,7 @@ console.log(me);
 console.log(sam);
 
 //NODE MODULES
+//same thing as above but with node modules.
 // const userExports = require("./user.js");
 // const me = userExports.me;
 // const printUser = userExports.printUser;
