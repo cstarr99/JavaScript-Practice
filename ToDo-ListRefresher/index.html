@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <container class="todo-container">
+      <h1 class="todo-title">To-Do List</h1>
+      <div class="items-container">
+        <div class="incomplete-items items">
+          <h2 class="item-title">Incomplete Items</h2>
+        </div>
+        <div class="complete-items items">
+          <h2 class="item-title">Complete Items</h2>
+        </div>
+      </div>
+      <form class="add-item">
+        <label for="new-item" id="label">New Item: </label>
+        <input id="input" type="text" />
+        <button class="submit-btn" type="submit">Add Item</button>
+      </form>
+    </container>
+  </body>
+</html>

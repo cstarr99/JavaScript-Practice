@@ -1,4 +1,3 @@
-node_modules/
-dist/*
-*.log
-*.secret
+node_modules
+dist
+.cache
