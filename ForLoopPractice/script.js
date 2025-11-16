@@ -1,4 +1,4 @@
-//For loop practice.
+//For loop practice. (usually use the length of the array)
 for (i = 0; i < 5; i++) {
   console.log("hello world");
 }
