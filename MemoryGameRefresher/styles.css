@@ -60,3 +60,7 @@ body {
 .button:hover {
   filter: brightness(75%);
 }
+
+.hidden {
+  text-indent: -9999px;
+}
