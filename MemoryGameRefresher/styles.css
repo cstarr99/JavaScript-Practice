@@ -25,13 +25,20 @@ body {
 }
 
 .tile-container {
-  height: 70%;
+  flex: 1; /* fills remaining vertical space */
   width: 85%;
   background-color: black;
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+  /* Ensure at least 4 tiles per row */
+  grid-template-columns: repeat(4, 1fr); /* default 4 columns */
+
+  /* Use auto-fit for more tiles if space allows */
+  /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); */
+
+  gap: 10px;
   padding: 10px;
 }
 
@@ -63,4 +70,21 @@ body {
 
 .hidden {
   text-indent: -9999px;
+}
+@media (max-width: 900px) {
+  .tile-container {
+    grid-template-columns: repeat(4, 1fr); /* maintain 4 min tiles per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .tile-container {
+    grid-template-columns: repeat(
+      4,
+      minmax(60px, 1fr)
+    ); /* shrink tiles but keep 4 per row */
+  }
+  .tile {
+    min-width: 25px;
+  }
 }
