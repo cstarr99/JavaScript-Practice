@@ -50,6 +50,14 @@ body {
   font-size: 4rem;
 }
 
+.correct {
+  background-color: green;
+}
+
+.incorrect {
+  background-color: red;
+}
+
 .tile:hover {
   filter: brightness(75%);
 }

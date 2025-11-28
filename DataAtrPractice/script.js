@@ -9,3 +9,7 @@ document.addEventListener("click", () => {
   //adds 1 to current click number.
   btn.dataset.clicks = currentClick + 1;
 });
+
+function add(currentClick) {
+  currentClick = k;
+}

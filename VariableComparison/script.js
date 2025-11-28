@@ -20,3 +20,12 @@ let f = "b";
 
 console.log(e == f);
 console.log(e != f);
+
+//== doesn't care about type, === does
+const jim = 1;
+const lee = "1";
+
+const tru = jim == lee;
+console.log(tru);
+
+//only time to use == is with null or undefined!!!
