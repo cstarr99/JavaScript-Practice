@@ -1,4 +1,4 @@
-/* A promise is a better way of calling asynch callback functions. 
+/* A promise is a better way of calling async callback functions. 
 its saying that you are making a promise and if you succeed the resolve is ran,
 and if you fail then the reject is run*/
 const promise = new Promise((resolve, reject) => {
